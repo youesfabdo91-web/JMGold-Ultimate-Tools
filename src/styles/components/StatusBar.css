@@ -1,0 +1,70 @@
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  background: linear-gradient(180deg, #121212 0%, #0a0a0a 100%);
+  border-top: 1px solid #d4af37;
+  height: 40px;
+  font-size: 12px;
+  color: #a0a0a0;
+  gap: 20px;
+}
+
+.status-left,
+.status-right {
+  min-width: 150px;
+}
+
+.status-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.status-brand {
+  font-size: 11px;
+  font-weight: 700;
+  color: #d4af37;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.status-label-text {
+  font-size: 10px;
+  color: #707070;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.status-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.status-item {
+  font-size: 11px;
+  color: #a0a0a0;
+}
+
+.status-item strong {
+  color: #d4af37;
+  font-weight: 600;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.status-divider {
+  color: #d4af37;
+  opacity: 0.5;
+}
+
+.status-right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  text-align: right;
+}
