@@ -1,0 +1,57 @@
+{
+  "id": "JMGOLD-ULTIMATE-TOOLS",
+  "productName": "JMGOLD ULTIMATE TOOLS",
+  "version": "1.2.0",
+  "author": "JM Development",
+  "description": "Premium Gaming Utility Dashboard",
+  "publisher": "JMGOLD",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/youesfabdo91-web/JMGold-Ultimate-Tools"
+  },
+  "build": {
+    "appId": "com.jmgold.tools",
+    "asar": true,
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "build/**/*",
+      "public/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "certificateFile": null,
+      "certificatePassword": null
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "JMGOLD ULTIMATE TOOLS v1.2"
+    },
+    "portable": {
+      "artifactName": "JMGOLD-ULTIMATE-TOOLS-v1.2-portable.exe"
+    }
+  },
+  "antiDetection": {
+    "hideProcess": true,
+    "randomizeInputPatterns": true,
+    "memoryProtection": true,
+    "obfuscateCode": true
+  }
+}

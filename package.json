@@ -2,24 +2,28 @@
   "name": "jmgold-ultimate-tools",
   "version": "1.2.0",
   "description": "Premium Gaming Utility Dashboard - JMGOLD ULTIMATE TOOLS",
-  "main": "public/electron.js",
-  "homepage": "./",
   "author": "JM Development",
   "license": "MIT",
+  "main": "public/main-process.js",
+  "homepage": "./",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "electron-dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
     "electron-build": "npm run build && electron-builder",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "make-exe": "npm run build && electron-builder --win --x64 --publish never"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "electron-squirrel-startup": "^1.1.1",
+    "robotjs": "^0.6.0",
+    "ffi-napi": "^4.0.3",
+    "ref-napi": "^3.0.3",
+    "electron-is-dev": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
@@ -36,27 +40,41 @@
     "productName": "JMGOLD ULTIMATE TOOLS",
     "files": [
       "build/**/*",
-      "node_modules/**/*"
+      "public/**/*",
+      "node_modules/**/*",
+      "package.json"
     ],
     "directories": {
       "buildResources": "assets"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "certificateFile": null,
+      "certificatePassword": null,
+      "signingHashAlgorithms": [
+        "sha256"
+      ],
+      "sign": "./customSign.js"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "JMGOLD ULTIMATE TOOLS"
+    },
+    "portable": {
+      "artifactName": "JMGOLD-ULTIMATE-TOOLS-${version}.${ext}"
     }
   },
   "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
+    "extends": ["react-app"]
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   }
 }
